@@ -58,5 +58,18 @@ yargs(hideBin(process.argv))
     await removeAllNotes()
     console.log('All notes removed')
   })
+  .command('findByTag <tags>', 'find notes by tags', yargs => {
+    return yargs.positional('tags', {
+      describe: 'Comma-separated list of tags to filter notes by',
+      type: 'string'
+    })
+  }, async (argv) => {
+    const tags = argv.tags.split(',').map(tag => tag.trim().toLowerCase())
+    const notes = await getAllNotes()
+    const filteredNotes = notes.filter(note => 
+      note.tags.some(tag => tags.includes(tag.toLowerCase()))
+    )
+    listNotes(filteredNotes)
+  })
   .demandCommand(1)
   .parse()
