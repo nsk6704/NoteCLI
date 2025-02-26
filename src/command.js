@@ -1,6 +1,6 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import {newNote, getAllNotes, findNotes, removeNote, removeAllNotes} from './note.js'
+import {newNote, getAllNotes, findNotes, removeNote, removeAllNotes} from '../note.js'
 
 const listNotes = (notes) => {
   notes.forEach(note => {
