@@ -16,3 +16,5 @@ To install NoteCLI, clone the repository and install the dependencies:
 git clone https://github.com/nsk6704/NoteCLI.git
 cd NoteCLI
 npm install
+```
+## Usage (To be added)
